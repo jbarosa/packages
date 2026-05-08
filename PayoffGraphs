@@ -1,0 +1,56 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+S0 = 100   # initial price (not strictly needed for payoff)
+K = 85    # strike call
+
+
+# Range of final prices
+ST = np.linspace(50, 150, 100)
+
+# --- Payoffs ---
+
+# Covered Call: long stock + short call
+covered_call = ST - np.maximum(ST - K, 0)
+
+# Protective Put: long stock + long put
+protective_put = ST + np.maximum(K - ST, 0)
+
+# --- Plot ---
+plt.figure()
+
+
+plt.plot(ST, protective_put, label="Protective Put")
+
+# Reference: stock only
+#plt.plot(ST, ST, linestyle="--", label="Stock (benchmark)")
+
+# Strike line
+plt.axvline(K, linestyle=":", label="Strike")
+
+plt.xlabel("Stock Price at Maturity (S_T)")
+plt.ylabel("Payoff")
+plt.title("Payoff: Protective Put")
+plt.legend()
+
+plt.grid()
+plt.show()
+
+plt.plot(ST, covered_call, label="Covered Call")
+
+# Reference: stock only
+#plt.plot(ST, ST, linestyle="--", label="Stock (benchmark)")
+
+# Strike line
+plt.axvline(K, linestyle=":", label="Strike")
+
+plt.xlabel("Stock Price at Maturity (S_T)")
+plt.ylabel("Payoff")
+plt.title("Payoff: Covered Call")
+plt.legend()
+
+plt.grid()
+plt.show()
+
+
