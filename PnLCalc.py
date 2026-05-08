@@ -18,14 +18,14 @@ def put_credit_spread_pnl(participation, premium_received, K1, K2, S):
 
 
 # Example usage of put credit spread payoff and price
-spot=100
+spot=16
 
-put2_strike = 80
-put2_bid = 0.5
-put2_ask = 0.6
+put2_strike = 14
+put2_bid = 0.11
+put2_ask = 0.38
 
-put1_strike = 50
-put1_bid = 0.2
+put1_strike = 13.5
+put1_bid = 0.04
 put1_ask = 0.7
 
 participation = 1  # Number of spreads
