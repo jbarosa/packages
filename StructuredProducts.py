@@ -17,6 +17,7 @@ from Derivatives import black_scholes_call, black_scholes_put
     # Warrant with knock-out:
     # Mini-Future:
     # Constant leverage certificate:
+    # Structured deposit:
 
 def capital_protection_payoff(S, K, T, r, q, sigma, participation, protection, cap=0):
     #long call option + long zero-coupon bond
