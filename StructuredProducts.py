@@ -3,9 +3,9 @@ from Derivatives import black_scholes_call, black_scholes_put
 
 # Payoff and price functions for structured products:
     # Capital Protection: long call option + long zero-coupon bond
-    # Discount certificate:
-    # Reverse convertible:
-    # Counditional Coupon Barrier Reverse Convertible:
+    # Discount certificate: long stock + short call option or bond + short put option
+    # Reverse convertible: bond + coupons + short put option
+    # Counditional Coupon Barrier Reverse Convertible: bond + short put option with barrier
     # Autocallable:
     # Tracker certificate:
     # Outperformance certificate:
@@ -29,3 +29,25 @@ def capital_protection_price(S, K, T, r, q, sigma, participation, protection, ca
     call_price = black_scholes_call(S, K, T, r, q, sigma)
     zero_cupon_bond_price = protection * (1 + r) ** (-T)
     return zero_cupon_bond_price + call_price * participation
+
+def discount_certificate_payoff(S, K, T, r, q, sigma, participation):
+    #long stock + short call option or bond + short put option
+    payoff = S + participation * max(0, K - S)  # Payoff from the stock plus the payoff from the short call option
+    return payoff
+
+def discount_certificate_price(S, K, T, r, q, sigma, participation):
+    #long stock + short call option or bond + short put option
+    call_price = black_scholes_call(S, K, T, r, q, sigma)
+    return S - call_price * participation  # Price of the stock minus the price of the short call option 
+
+def reverse_convertible_payoff(S, K, T, r, q, sigma, participation, notional, coupon):
+    #bond + short put option
+    payoff = notional + coupon - participation * max(0, K - S)  # Payoff from the bond plus coupons minus the payoff from the short put option
+    #if S<K and notional = K -> payoff = S + coupon 
+    return payoff
+
+def reverse_convertible_price(S, K, T, r, q, sigma, participation, notional, coupon):
+    #bond + short put option
+    put_price = black_scholes_put(S, K, T, r, q, sigma)
+    zero_cupon_bond_price = notional * (1 + r) ** (-T)
+    return zero_cupon_bond_price + coupon * (1 - (1 + r) ** (-T)) / r - put_price * participation  # Price of the bond plus the present value of coupons minus the price of the short put option
