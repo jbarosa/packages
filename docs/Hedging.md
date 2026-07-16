@@ -1,4 +1,6 @@
-'''
+# Hedge
+
+## How to Hedge
 1-do nothing
 2-early profit (buy back the position before maturity, ensuring  25%, 50 % or 75% of the maximum profit)
 3-Roll the position in time (extend the maturity by buying the current position and selling a new one with a later maturity, evaluate at 21 DTE)

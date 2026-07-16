@@ -1,5 +1,5 @@
-import StructuredProducts as sp
-import DerivativesStrategies as ds
+import python.pricing.StructuredProducts as sp
+import python.pricing.DerivativesStrategies as ds
 
 
 def put_credit_spread_pnl(participation, premium_received, K1, K2, S):

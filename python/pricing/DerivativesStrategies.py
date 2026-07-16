@@ -1,4 +1,4 @@
-from Derivatives import black_scholes_call, black_scholes_put
+from python.pricing.Derivatives import black_scholes_call, black_scholes_put
 # Payoff and price functions for options strategies:
     # Covered Call: long stock + short call
     # Protective Put: long stock + long put

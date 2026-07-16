@@ -1,6 +1,6 @@
-import StructuredProducts as sp
-import DerivativesStrategies as ds
-import PnLCalc as pnl
+import python.pricing.StructuredProducts as sp
+import python.pricing.DerivativesStrategies as ds
+import python.PnL.PnLCalc as pnl
 
 def price_cp(S, K, T, r, q, sigma, participation, protection, cap=0):
     return sp.capital_protection_price(S, K, T, r, q, sigma, participation, protection, cap)
