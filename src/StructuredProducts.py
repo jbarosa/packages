@@ -1,5 +1,9 @@
 
+<<<<<<<< HEAD:src/StructuredProducts.py
 from src.Derivatives import black_scholes_call, black_scholes_put
+========
+from python.pricing.Derivatives import black_scholes_call, black_scholes_put
+>>>>>>>> 9350fb69371c9962a1503fb713657b77640aa00d:python/pricing/StructuredProducts.py
 
 # Payoff and price functions for structured products:
     # Capital Protection: long call option + long zero-coupon bond

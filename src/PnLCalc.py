@@ -1,5 +1,10 @@
+<<<<<<<< HEAD:src/PnLCalc.py
 import src.StructuredProducts as sp
 import src.DerivativesStrategies as ds
+========
+import python.pricing.StructuredProducts as sp
+import python.pricing.DerivativesStrategies as ds
+>>>>>>>> 9350fb69371c9962a1503fb713657b77640aa00d:python/PnL/PnLCalc.py
 
 
 def put_credit_spread_pnl(participation, premium_received, K1, K2, S):
